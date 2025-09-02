@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project1
+namespace Project1.BookStage
 {
-    public partial class AfLogin : Form
+    public partial class BookDisplay : UserControl
     {
-        public AfLogin()
+        public BookDisplay()
         {
             InitializeComponent();
         }

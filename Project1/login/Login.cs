@@ -45,24 +45,17 @@ namespace Project1.login
 
                 if (reader.Read())
                 {
-                    // ✅ 登入成功，建立使用者資料
                     CEmployee emp = new CEmployee
                     {
                         Adminname = reader["Adminname"].ToString(),
-                        Password = reader["Password"].ToString()
-
+                        Password = reader["Password"].ToString(),
+                        IsAdmin = Convert.ToBoolean(reader["IsAdmin"])
                     };
 
-                    MessageBox.Show("登入成功！");
-
-                    // ✅ 設定 Session 的登入使用者
                     Session.LoggedInUser = emp;
 
-                    // ✅ 將登入使用者傳給主畫面 Form1
-                    Form1 mainForm = new Form1(emp);
-                    mainForm.Show();
-
-                    this.Hide(); // 隱藏登入表單
+                    this.DialogResult = DialogResult.OK; // ✅ 回傳結果，關閉表單
+                    this.Close(); // ✅ 關閉 Login 表單
                 }
                 else
                 {
@@ -70,13 +63,38 @@ namespace Project1.login
                 }
 
                 reader.Close();
-
             }
+
         }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTogglePassword_Click(object sender, EventArgs e)
+        {
+            fPassword.UseSystemPasswordChar = !fPassword.UseSystemPasswordChar;
+
+            if (fPassword.UseSystemPasswordChar)
+            {
+                btnTogglePassword.Text = "👁"; // 顯示
+            }
+            else
+            {
+                btnTogglePassword.Text = "👁‍🗨"; // 隱藏
+            }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -49,23 +49,27 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Items.AddRange(new object[] {
             "人文社科",
-            "經典文學"});
+            "經典文學",
+            "奇幻文學",
+            "自我成長",
+            "人物傳記"});
             this.cbCategory.Location = new System.Drawing.Point(118, 283);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(171, 20);
+            this.cbCategory.Size = new System.Drawing.Size(171, 25);
             this.cbCategory.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(114, 261);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 19);
+            this.label1.Size = new System.Drawing.Size(34, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "類別";
             // 
@@ -92,7 +96,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Bisque;
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(469, 384);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 31);
@@ -134,7 +138,7 @@
             this.fbDes.BackColor = System.Drawing.Color.Transparent;
             this.fbDes.fieldName = "介紹";
             this.fbDes.fieldValue = "";
-            this.fbDes.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.fbDes.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fbDes.Location = new System.Drawing.Point(357, 309);
             this.fbDes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fbDes.Name = "fbDes";
@@ -146,7 +150,7 @@
             this.fbStock.BackColor = System.Drawing.Color.Transparent;
             this.fbStock.fieldName = "數量";
             this.fbStock.fieldValue = "";
-            this.fbStock.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.fbStock.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fbStock.Location = new System.Drawing.Point(357, 248);
             this.fbStock.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fbStock.Name = "fbStock";
@@ -158,7 +162,7 @@
             this.fbPrice.BackColor = System.Drawing.Color.Transparent;
             this.fbPrice.fieldName = "價格";
             this.fbPrice.fieldValue = "";
-            this.fbPrice.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.fbPrice.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fbPrice.Location = new System.Drawing.Point(357, 192);
             this.fbPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fbPrice.Name = "fbPrice";
@@ -170,7 +174,7 @@
             this.fbISBN.BackColor = System.Drawing.Color.Transparent;
             this.fbISBN.fieldName = "ISBN";
             this.fbISBN.fieldValue = "";
-            this.fbISBN.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fbISBN.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fbISBN.Location = new System.Drawing.Point(357, 136);
             this.fbISBN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fbISBN.Name = "fbISBN";
@@ -182,7 +186,7 @@
             this.fbAuthor.BackColor = System.Drawing.Color.Transparent;
             this.fbAuthor.fieldName = "作者";
             this.fbAuthor.fieldValue = "";
-            this.fbAuthor.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.fbAuthor.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fbAuthor.Location = new System.Drawing.Point(118, 193);
             this.fbAuthor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fbAuthor.Name = "fbAuthor";
@@ -194,12 +198,13 @@
             this.fbTitle.BackColor = System.Drawing.Color.Transparent;
             this.fbTitle.fieldName = "書名";
             this.fbTitle.fieldValue = "";
-            this.fbTitle.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.fbTitle.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.fbTitle.Location = new System.Drawing.Point(118, 136);
             this.fbTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fbTitle.Name = "fbTitle";
             this.fbTitle.Size = new System.Drawing.Size(171, 50);
             this.fbTitle.TabIndex = 1;
+            this.fbTitle.Load += new System.EventHandler(this.fbTitle_Load);
             // 
             // fbBookID
             // 
@@ -234,6 +239,7 @@
             this.Controls.Add(this.fbTitle);
             this.Controls.Add(this.fbBookID);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddBooks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBooks";

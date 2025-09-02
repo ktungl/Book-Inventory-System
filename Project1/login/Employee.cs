@@ -43,7 +43,18 @@ namespace Project1.login
                 _employee.Password = textBox2.Text;
                 return _employee;
             }
-            set { _employee = value; }
+            set
+            {
+                _employee = value;
+                if (_employee != null)
+                {
+                    textBox5.Text = _employee.fID.ToString();
+                    textBox1.Text = _employee.Adminname;
+                    textBox3.Text = _employee.Email;
+                    textBox4.Text = _employee.EmployeeId;
+                    textBox2.Text = _employee.Password;
+                }
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)

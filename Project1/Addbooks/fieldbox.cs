@@ -12,9 +12,25 @@ namespace Project1.Addbooks
 {
     public partial class fieldbox : UserControl
     {
+        public void Clear()
+        {
+            this.fieldValue = "";
+        }
         public fieldbox()
         {
             InitializeComponent();
+        }
+
+        [Browsable(true)]
+        public override Font Font
+        {
+            get { return base.Font; }
+            set
+            {
+                base.Font = value;
+                this.label1.Font = value;
+                this.textBox1.Font = value;
+            }
         }
 
         public string fieldName

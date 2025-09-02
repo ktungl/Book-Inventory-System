@@ -46,10 +46,10 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Sitka Display", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(194, 104);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(204, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 56);
+            this.label1.Size = new System.Drawing.Size(107, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Adminname";
             // 
@@ -63,10 +63,10 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Sitka Display", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(194, 160);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(214, 163);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 56);
+            this.label2.Size = new System.Drawing.Size(86, 33);
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
             // 
@@ -80,16 +80,16 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Sitka Display", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(194, 272);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(204, 273);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 56);
+            this.label3.Size = new System.Drawing.Size(107, 56);
             this.label3.TabIndex = 4;
             this.label3.Text = "EmployeeID";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(317, 227);
+            this.textBox3.Location = new System.Drawing.Point(317, 216);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(250, 22);
             this.textBox3.TabIndex = 5;
@@ -97,16 +97,16 @@
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Sitka Display", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(194, 216);
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(224, 216);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 56);
+            this.label4.Size = new System.Drawing.Size(62, 25);
             this.label4.TabIndex = 6;
             this.label4.Text = "Email";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(317, 275);
+            this.textBox4.Location = new System.Drawing.Point(317, 276);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(250, 22);
             this.textBox4.TabIndex = 7;
@@ -115,9 +115,9 @@
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(180, 20);
+            this.label5.Location = new System.Drawing.Point(115, 57);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 29);
+            this.label5.Size = new System.Drawing.Size(39, 29);
             this.label5.TabIndex = 8;
             this.label5.Text = "ID";
             this.label5.Visible = false;
@@ -125,17 +125,17 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(215, 20);
+            this.textBox5.Location = new System.Drawing.Point(149, 59);
             this.textBox5.Name = "textBox5";
             this.textBox5.ShortcutsEnabled = false;
-            this.textBox5.Size = new System.Drawing.Size(250, 22);
+            this.textBox5.Size = new System.Drawing.Size(55, 22);
             this.textBox5.TabIndex = 9;
             this.textBox5.Text = "0";
             this.textBox5.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(208, 335);
+            this.button1.Location = new System.Drawing.Point(218, 335);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 28);
             this.button1.TabIndex = 10;
@@ -145,7 +145,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(484, 335);
+            this.button2.Location = new System.Drawing.Point(479, 333);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 28);
             this.button2.TabIndex = 11;
@@ -172,6 +172,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Employee";
             this.Text = "Employee";
             this.Load += new System.EventHandler(this.Employee_Load);

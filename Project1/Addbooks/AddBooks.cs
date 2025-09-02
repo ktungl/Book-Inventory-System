@@ -17,7 +17,7 @@ namespace Project1.Addbooks
 
 
         private bool _isOk;
-        private BBook _bbook;
+        private BBooks _bbook;
 
         public bool isOk
         {
@@ -27,13 +27,13 @@ namespace Project1.Addbooks
         }
 
 
-        public BBook bbook
+        public BBooks bbook
         {
 
             get
             {
                 if (_bbook == null)
-                    _bbook = new BBook();
+                    _bbook = new BBooks();
 
 
                 _bbook.BookID = Convert.ToInt32(fbBookID.fieldValue);
@@ -146,7 +146,7 @@ namespace Project1.Addbooks
             Cover1.Image = b;
 
             if (_bbook == null)
-                _bbook = new BBook();
+                _bbook = new BBooks();
 
             try
             {
@@ -165,6 +165,11 @@ namespace Project1.Addbooks
         }
 
         private void AddBooks_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fbTitle_Load(object sender, EventArgs e)
         {
 
         }

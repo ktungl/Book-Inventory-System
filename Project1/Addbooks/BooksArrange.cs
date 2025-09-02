@@ -12,12 +12,12 @@ using Project1.login;
 
 namespace Project1.Addbooks
 {
-    public partial class BooksArrange : Form
+    public partial class BooksArrange : UserControl
     {
         SqlDataAdapter _adapter = null;
         SqlCommandBuilder _builder = null;
 
-        private List<BBook> _listBook = null;
+        private List<BBooks> _listBook = null;
 
         private int _position = -1;
 
@@ -28,39 +28,48 @@ namespace Project1.Addbooks
 
         private void Refresh()
         {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source=.;Initial Catalog=BookStore;Integrated Security=True";
-            conn.Open();
-
-            _adapter = new SqlDataAdapter("Select * from Books", conn);
-            _builder = new SqlCommandBuilder();
-            _builder.DataAdapter = _adapter;
-
-            DataSet ds = new DataSet();
-            _adapter.Fill(ds);
-            conn.Close();
-
-            dataGridView1.DataSource = ds.Tables[0];
-            _listBook = new List<BBook>();
-
-            foreach (DataRow r in ds.Tables[0].Rows)
-            {
-                BBook bBook = new BBook();
-                bBook.Title = r["Title"].ToString();
-                bBook.Author = r["Author"].ToString();
-                bBook.ISBN = r["ISBN"].ToString();
-                bBook.Category = r["Category"].ToString();
-                bBook.Price = Convert.ToInt32(r["Price"]);
-                bBook.Stock = Convert.ToInt32(r["Stock"]);
-                bBook.Description = r["Description"].ToString();
-                if (r["Image"] != DBNull.Value)
-                    bBook.Image = (byte[])r["Image"];
-                _listBook.Add(bBook);
-            }
+            queryBySql("Select * From Books", null);
 
             resetGridStyle();
         }
 
+        private void queryBySql(string sql, SqlParameter para)
+        {
+            using (SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=BookStore;Integrated Security=True"))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                if (para != null)
+                {
+                    cmd.Parameters.Add(para);
+                }
+
+                _adapter = new SqlDataAdapter(cmd);
+                _builder = new SqlCommandBuilder(_adapter);
+
+                DataSet ds = new DataSet();
+                _adapter.Fill(ds);
+
+                dataGridView1.DataSource = ds.Tables[0];
+
+                _listBook = new List<BBooks>();
+                foreach (DataRow r in ds.Tables[0].Rows)
+                {
+                    BBooks bBook = new BBooks();
+                    bBook.Title = r["Title"].ToString();
+                    bBook.Author = r["Author"].ToString();
+                    bBook.ISBN = r["ISBN"].ToString();
+                    bBook.Category = r["Category"].ToString();
+                    bBook.Price = Convert.ToInt32(r["Price"]);
+                    bBook.Stock = Convert.ToInt32(r["Stock"]);
+                    bBook.Description = r["Description"].ToString();
+                    if (r["Image"] != DBNull.Value)
+                        bBook.Image = (byte[])r["Image"];
+                    _listBook.Add(bBook);
+                }
+            }
+        }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
@@ -81,6 +90,7 @@ namespace Project1.Addbooks
             row["Description"] = a.bbook.Description;
             row["Image"] = a.bbook.Image;
             table.Rows.Add(row);
+            _adapter.Update(table);
             _listBook.Add(a.bbook);
             resetGridStyle();
             MessageBox.Show("新增資料完成");
@@ -138,11 +148,12 @@ namespace Project1.Addbooks
                 return;
             DataRow row = table.Rows[_position];
             row.Delete();
+            _adapter.Update(table);
             resetGridStyle();
             MessageBox.Show("刪除資料成功");
         }
 
-        private void editCustomer()
+        private void editBook()
         {
             if (_position < 0 || _position >= _listBook.Count)
                 return;
@@ -162,11 +173,13 @@ namespace Project1.Addbooks
             row["Stock"] = (int)a.bbook.Stock;
             row["Description"] = a.bbook.Description;
             row["Image"] = a.bbook.Image;
+
+            _adapter.Update(table);
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            editCustomer();
+            editBook();
         }
 
         private void BooksArrange_FormClosing(object sender, FormClosingEventArgs e)
@@ -177,7 +190,23 @@ namespace Project1.Addbooks
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-           
+            string sql = "SELECT * FROM Books WHERE ";
+            sql += " Title LIKE @K_KEYWORD";
+            sql += " OR Author LIKE @K_KEYWORD";
+            sql += " OR ISBN LIKE @K_KEYWORD";
+
+            SqlParameter para = new SqlParameter("@K_KEYWORD", "%" + (object)tbSearch.Text + "%");
+            queryBySql(sql, para);
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            editBook();
+        }
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            resetGridStyle();
         }
     }
 }

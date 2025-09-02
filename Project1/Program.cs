@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project1.login;
 
 namespace Project1
 {
@@ -16,7 +17,12 @@ namespace Project1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Login loginForm = new Login();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Form1(Session.LoggedInUser));  
+            }
         }
     }
 }

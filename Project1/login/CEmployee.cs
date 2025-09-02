@@ -14,5 +14,9 @@ namespace Project1.login
         public string Email { get; set; }
         public string EmployeeId { get; set; }
         public string Password { get; set; }
+
+        public bool IsAdmin { get; set; }  
+
+        public string Role { get; set; }
     }
 }

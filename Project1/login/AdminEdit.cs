@@ -12,7 +12,7 @@ using Project1.Addbooks;
 
 namespace Project1.login
 {
-    public partial class AdminEdit : Form
+    public partial class AdminEdit : UserControl
     {
         SqlDataAdapter _adapter = null;
         SqlCommandBuilder _builder = null;
@@ -49,9 +49,10 @@ namespace Project1.login
                 em.Email = r["Email"].ToString();
                 em.EmployeeId = r["EmployeeID"].ToString();
                 em.Password = r["Password"].ToString();
+                _listAdmin.Add(em);
             }
 
-            resetGridStyle();
+            this.BeginInvoke(new Action(() => resetGridStyle()));
         }
 
 
@@ -65,11 +66,13 @@ namespace Project1.login
             DataTable table = dataGridView1.DataSource as DataTable;
             DataRow row = table.NewRow();
             row["Adminname"] = em.employee.Adminname;
-            row["Email"] = em.employee.Adminname;
+            row["Email"] = em.employee.Email;
             row["EmployeeId"] = em.employee.EmployeeId;
             row["Password"] = em.employee.Password;
 
             table.Rows.Add(row);
+            _adapter.Update(table);
+
             _listAdmin.Add(em.employee);
             resetGridStyle();
             MessageBox.Show("新增資料完成");
@@ -85,7 +88,8 @@ namespace Project1.login
 
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-            for (int i = 0; i <= 4; i++)
+            int colCount = Math.Min(5, dataGridView1.Columns.Count);
+            for (int i = 0; i < colCount; i++)
             {
                 dataGridView1.Columns[i].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             }
@@ -93,7 +97,7 @@ namespace Project1.login
             bool isColorChanged = false;
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
-                r.DefaultCellStyle.Font = new Font("微軟正黑體", 13);
+                r.DefaultCellStyle.Font = new Font("Times New Roman", 13);
                 r.Height = 35;
                 r.DefaultCellStyle.BackColor = Color.MistyRose;
                 isColorChanged = !isColorChanged;
@@ -128,11 +132,12 @@ namespace Project1.login
                 return;
             DataRow row = table.Rows[_position];
             row.Delete();
+            _adapter.Update(table);
             resetGridStyle();
             MessageBox.Show("刪除資料成功");
         }
 
-        private void editCustomer()
+        private void editEmployee()
         {
             if (_position < 0 || _position >= _listAdmin.Count)
                 return;
@@ -144,20 +149,31 @@ namespace Project1.login
             DataTable table = dataGridView1.DataSource as DataTable;
             DataRow row = table.Rows[_position];
             row["Adminname"] = em.employee.Adminname;
-            row["Email"] = em.employee.Adminname;
+            row["Email"] = em.employee.Email;
             row["EmployeeId"] = em.employee.EmployeeId;
             row["Password"] = em.employee.Password;
+            _listAdmin[_position] = em.employee;
+            _adapter.Update(table);              
+
+            resetGridStyle();
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            editCustomer();
+            editEmployee();
+            resetGridStyle();
         }
 
         private void AdminEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
             DataTable table = dataGridView1.DataSource as DataTable;
             _adapter.Update(table);
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            editEmployee();
+            resetGridStyle();
         }
     }
 }

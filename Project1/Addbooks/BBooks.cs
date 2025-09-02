@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1.Addbooks
 {
-    public class BBook
+    public class BBooks
     {
         public int BookID { get; set; }
 

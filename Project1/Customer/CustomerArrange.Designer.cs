@@ -1,6 +1,6 @@
-﻿namespace Project1.login
+﻿namespace Project1.Customer
 {
-    partial class AdminEdit
+    partial class CustomerArrange
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerArrange));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.tbSearch = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -44,14 +46,14 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FloralWhite;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Snow;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(69, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(73, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(675, 372);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
@@ -62,11 +64,13 @@
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3,
-            this.toolStripButton6});
+            this.toolStripButton6,
+            this.toolStripButton4,
+            this.tbSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 27);
-            this.toolStrip1.TabIndex = 4;
+            this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripButton1
@@ -109,17 +113,36 @@
             this.toolStripButton6.Text = "刪除";
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
-            // AdminEdit
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(61, 24);
+            this.toolStripButton4.Text = "查詢";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tbSearch.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(100, 27);
+            // 
+            // CustomerArrange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "AdminEdit";
+            this.Controls.Add(this.toolStrip1);
+            this.DoubleBuffered = true;
+            this.Name = "CustomerArrange";
             this.Size = new System.Drawing.Size(800, 450);
-            this.Load += new System.EventHandler(this.AdminEdit_Load);
+            this.Load += new System.EventHandler(this.Customer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -136,5 +159,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripTextBox tbSearch;
     }
 }
